@@ -1,4 +1,4 @@
-package gscript.typesystem;
+package gryffinscript.gscript.typesystem;
 
 class NativeMap < K, T > {
 	public var keyList:Array <K>;

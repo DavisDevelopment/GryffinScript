@@ -1,10 +1,10 @@
-package gscript.gsbind;
+package gryffinscript.gscript.gsbind;
 
-import gscript.typesystem.GSObject;
-import gscript.typesystem.GSArray;
-import gscript.typesystem.GSString;
-import gscript.typesystem.GSNumber;
-import gscript.typesystem.TypeSystem;
+import gryffinscript.gscript.typesystem.GSObject;
+import gryffinscript.gscript.typesystem.GSArray;
+import gryffinscript.gscript.typesystem.GSString;
+import gryffinscript.gscript.typesystem.GSNumber;
+import gryffinscript.gscript.typesystem.TypeSystem;
 
 class BoundObject extends GSObject {
 	public var target:Dynamic;

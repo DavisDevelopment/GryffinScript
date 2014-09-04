@@ -1,16 +1,17 @@
+package gryffinscript;
 
-import gscript.Parser;
-import gscript.Interp;
-import gscript.FileSystem;
-import gscript.typesystem.GSObject;
-import gscript.typesystem.GSArray;
-import gscript.typesystem.GSString;
-import gscript.typesystem.GSStream;
-import gscript.typesystem.GSNumber;
-import gscript.typesystem.GSFunction;
-import gscript.typesystem.GSNativePointer;
-import gscript.typesystem.TypeSystem;
-import gscript.gsbind.GryffinBind;
+import gryffinscript.gscript.Parser;
+import gryffinscript.gscript.Interp;
+import gryffinscript.gscript.FileSystem;
+import gryffinscript.gscript.typesystem.GSObject;
+import gryffinscript.gscript.typesystem.GSArray;
+import gryffinscript.gscript.typesystem.GSString;
+import gryffinscript.gscript.typesystem.GSStream;
+import gryffinscript.gscript.typesystem.GSNumber;
+import gryffinscript.gscript.typesystem.GSFunction;
+import gryffinscript.gscript.typesystem.GSNativePointer;
+import gryffinscript.gscript.typesystem.TypeSystem;
+import gryffinscript.gscript.gsbind.GryffinBind;
 import haxe.Unserializer;
 
 class GryffinScriptRuntime {
@@ -71,6 +72,15 @@ class GryffinScriptRuntime {
 			return new GSString(type);
 		});
 		interp.variables.set("type", type);
+
+		var print = new GSFunction(true, function(data) {
+			var args:Array<Dynamic> = cast(data.args, Array<Dynamic>);
+			for (x in args) {
+				trace(x);
+			}
+			return null;
+		});
+		interp.variables.set('print', print);
 	}
 	public function runString( code:String ):Dynamic {
 		var program = this.parser.parseString(code);

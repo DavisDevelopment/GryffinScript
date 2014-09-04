@@ -1,4 +1,4 @@
-package gscript.typesystem;
+package gryffinscript.gscript.typesystem;
 
 class GSPointer extends GSObject {
 	public var interp:Interp;
@@ -30,6 +30,11 @@ class GSPointer extends GSObject {
 			throw 'TypeError: Pointer assignment field can only be strings or numbers';
 		}
 	}
+
+	override public function __deref__():Dynamic {
+		return this.address;
+	}
+
 //Pointer Address Reassignment
 	public function __reassign__( value:Dynamic ):Void {
 		var references = this.getReferences();

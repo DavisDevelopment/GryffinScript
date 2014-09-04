@@ -1,18 +1,18 @@
-import gscript.Parser;
-import gscript.Interp;
-import gscript.typesystem.GSObject;
-import gscript.typesystem.GSArray;
-import gscript.typesystem.GSString;
-import gscript.typesystem.GSNumber;
-import gscript.typesystem.GSFunction;
-import gscript.typesystem.GSPointer;
-import gscript.typesystem.GSNativePointer;
-import gscript.typesystem.TypeSystem;
-import gscript.gsbind.GryffinBind;
+import gryffinscript.gscript.Parser;
+import gryffinscript.gscript.Interp;
+import gryffinscript.gscript.typesystem.GSObject;
+import gryffinscript.gscript.typesystem.GSArray;
+import gryffinscript.gscript.typesystem.GSString;
+import gryffinscript.gscript.typesystem.GSNumber;
+import gryffinscript.gscript.typesystem.GSFunction;
+import gryffinscript.gscript.typesystem.GSPointer;
+import gryffinscript.gscript.typesystem.GSNativePointer;
+import gryffinscript.gscript.typesystem.TypeSystem;
+import gryffinscript.gscript.gsbind.GryffinBind;
 
-class GryffinScript {
+class gryffinscript.gscript {
 	public static function main() {
-		var vm = new GryffinScriptRuntime();
+		var vm = new gryffinscript.gscriptRuntime();
 		bindBuiltins( vm );
 		var args = Sys.args();
 		for ( arg in args ) {
@@ -24,7 +24,7 @@ class GryffinScript {
 			}
 		}
 	}
-	public static function bindBuiltins( vm:GryffinScriptRuntime ):Void {
+	public static function bindBuiltins( vm:gryffinscript.gscriptRuntime ):Void {
 		vm.bindValue("load", function( dlib:Dynamic, dprim:Dynamic, dnargs:Dynamic ) {
 			var lib:String = cast(dlib, String);
 			var prim:String = cast(dprim, String);

@@ -1,4 +1,4 @@
-package gscript.typesystem;
+package gryffinscript.gscript.typesystem;
 
 import haxe.Json;
 
@@ -11,7 +11,7 @@ class GSString extends GSObject {
 		this.value = str;
 	}
 
-//GryffinScript String Methods
+//gryffinscript.gscript String Methods
 
 	public function charAt( index:GSNumber ):GSString {
 		return new GSString(this.value.charAt(index.value));
@@ -90,7 +90,7 @@ class GSString extends GSObject {
 		}
 	}
 	override public function __iadd__( other:GSObject ):Void {
-		// If 'other' is a valid GryffinScript type
+		// If 'other' is a valid gryffinscript.gscript type
 		if (TypeSystem.basictype(other) != "Null" && TypeSystem.basictype(other) != "Bool" && Reflect.getProperty(other, 'type') != null) {
 			if ( other.type == 'string' || other.type == 'number' ) {
 				this.value += other.value;

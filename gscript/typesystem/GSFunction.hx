@@ -1,4 +1,4 @@
-package gscript.typesystem;
+package gryffinscript.gscript.typesystem;
 
 import haxe.Serializer;
 import haxe.Unserializer;

@@ -1,4 +1,4 @@
-package gscript.typesystem;
+package gryffinscript.gscript.typesystem;
 
 class GSBool extends GSPointer {
 	public function new( v:Bool, env:Interp ) {

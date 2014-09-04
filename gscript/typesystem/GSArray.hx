@@ -1,4 +1,4 @@
-package gscript.typesystem;
+package gryffinscript.gscript.typesystem;
 
 import haxe.Json;
 
@@ -67,7 +67,7 @@ class GSArray extends GSObject {
 		return new GSString(Json.stringify(repr));
 	}
 	
-//GryffinScript Array Methods
+//gryffinscript.gscript Array Methods
 	public function push ( item:GSObject ):Void {
 		this.items.push( item );
 	}

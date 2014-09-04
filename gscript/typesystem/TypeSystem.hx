@@ -1,4 +1,4 @@
-package gscript.typesystem;
+package gryffinscript.gscript.typesystem;
 
 class TypeSystem {
 	public static function basictype( obj:Dynamic ):String {

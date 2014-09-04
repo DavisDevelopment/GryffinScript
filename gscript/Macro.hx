@@ -22,10 +22,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
  * DAMAGE.
  */
-package gscript;
-import gscript.Expr.Error;
+package gryffinscript.gscript;
+import gryffinscript.gscript.Expr.Error;
 #if hscriptPos
-import gscript.Expr.ErrorDef;
+import gryffinscript.gscript.Expr.ErrorDef;
 #end
 import haxe.macro.Expr;
 
@@ -135,7 +135,7 @@ class Macro {
 		};
 	}
 
-	public function convert( e : gscript.Expr ) : Expr {
+	public function convert( e : gryffinscript.gscript.Expr ) : Expr {
 		return { expr : switch( #if hscriptPos e.e #else e #end ) {
 			case EConst(c):
 				EConst(switch(c) {

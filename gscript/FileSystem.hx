@@ -1,4 +1,4 @@
-package gscript;
+package gryffinscript.gscript;
 
 // Both Neko/CPP and JS Support
 

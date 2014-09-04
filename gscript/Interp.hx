@@ -1,13 +1,13 @@
-package gscript;
+package gryffinscript.gscript;
 
-import gscript.Expr;
-import gscript.typesystem.GSObject;
-import gscript.typesystem.GSArray;
-import gscript.typesystem.GSString;
-import gscript.typesystem.GSNumber;
-import gscript.typesystem.GSFunction;
-import gscript.typesystem.GSPointer;
-import gscript.typesystem.TypeSystem;
+import gryffinscript.gscript.Expr;
+import gryffinscript.gscript.typesystem.GSObject;
+import gryffinscript.gscript.typesystem.GSArray;
+import gryffinscript.gscript.typesystem.GSString;
+import gryffinscript.gscript.typesystem.GSNumber;
+import gryffinscript.gscript.typesystem.GSFunction;
+import gryffinscript.gscript.typesystem.GSPointer;
+import gryffinscript.gscript.typesystem.TypeSystem;
 
 private enum Stop {
 	SBreak;
@@ -41,7 +41,7 @@ class Interp {
 		variables.set("null",null);
 		variables.set("true",true);
 		variables.set("false",false);
-		variables.set("trace",function(e) haxe.Log.trace(Std.string(e),cast { fileName : "gscript", lineNumber : 0 }));
+		variables.set("trace",function(e) haxe.Log.trace(Std.string(e),cast { fileName : "gryffinscript.gscript", lineNumber : 0 }));
 		initOps();
 	}
 
@@ -348,8 +348,13 @@ class Interp {
 			//Dereference Operator
 			case "*":
 				var obj:Dynamic = this.expr(e);
-				if (TypeSystem.basictype(obj) != "GSPointer") throw 'InvalidOp "*":  Cannot dereference $obj';
-				return obj.address;
+				var deref:Dynamic = Reflect.getProperty(obj, '__deref__');
+				if (Reflect.isFunction(deref)) {
+					return deref();
+				} else {
+					throw 'TypeError: Cannot dereference $obj';
+				}
+				//return obj.address;
 			default:
 				throw Error.EInvalidOp(op);
 			}

@@ -1,4 +1,4 @@
-package gscript.gsbind;
+package gryffinscript.gscript.gsbind;
 
 enum NativeType {
 	NNumber;

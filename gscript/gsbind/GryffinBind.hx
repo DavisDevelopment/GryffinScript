@@ -1,11 +1,11 @@
-package gscript.gsbind;
+package gryffinscript.gscript.gsbind;
 
-import gscript.typesystem.GSObject;
-import gscript.typesystem.GSArray;
-import gscript.typesystem.GSString;
-import gscript.typesystem.GSNumber;
-import gscript.typesystem.GSFunction;
-import gscript.typesystem.TypeSystem;
+import gryffinscript.gscript.typesystem.GSObject;
+import gryffinscript.gscript.typesystem.GSArray;
+import gryffinscript.gscript.typesystem.GSString;
+import gryffinscript.gscript.typesystem.GSNumber;
+import gryffinscript.gscript.typesystem.GSFunction;
+import gryffinscript.gscript.typesystem.TypeSystem;
 
 class GryffinBind {
 	public static function fromNative( obj:Dynamic ):Dynamic {
@@ -28,7 +28,7 @@ class GryffinBind {
 				if (Reflect.isObject(obj)) {
 					return new BoundObject(obj);
 				} else {
-					throw 'TypeError: Cannot bind objects of type $type to the GryffinScript type system.';
+					throw 'TypeError: Cannot bind objects of type $type to the gryffinscript.gscript type system.';
 				}
 		}
 	}
@@ -61,7 +61,7 @@ class GryffinBind {
 			case "GSNativePointer":
 				return obj.address;
 			default:
-				throw 'TypeError: Cannot unbind object of type $type from the GryffinScript type system';
+				throw 'TypeError: Cannot unbind object of type $type from the gryffinscript.gscript type system';
 				return null;
 		}
 	}

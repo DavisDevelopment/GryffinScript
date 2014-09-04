@@ -1,6 +1,6 @@
-package gscript.typesystem;
+package gryffinscript.gscript.typesystem;
 
-import gscript.gsbind.GryffinBind;
+import gryffinscript.gscript.gsbind.GryffinBind;
 
 class GSNativePointer extends GSObject {
 	public var address:Dynamic;

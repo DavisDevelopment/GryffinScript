@@ -1,4 +1,4 @@
-package gscript.typesystem;
+package gryffinscript.gscript.typesystem;
 
 import haxe.Json;
 
@@ -71,6 +71,13 @@ class GSObject {
 			pointerSetter.__invoke__([key, value]);
 		}
 	}
+
+	//Pointer Dereferencing
+	public function __deref__():Dynamic {
+		throw 'TypeError: Cannot dereference object';
+		return null;
+	}
+
 	//Array Write
 	public function __setitem__( key:GSObject, value:Dynamic ):Void {
 		var realKey:String = key.toString();
@@ -251,12 +258,12 @@ class GSObject {
 		return this.__str__().value;
 	}
 	
-	//Function to internally expose a function to GryffinScript
+	//Function to internally expose a function to gryffinscript.gscript
 	public function expose( name:String, f:Dynamic ):Void {
 		var method = new GSFunction( true, f );
 		this.__props__.set(name, {'v':method});
 	}
-	//Function to internally expose a method to GryffinScript
+	//Function to internally expose a method to gryffinscript.gscript
 	public function exposeMethod( name:String, f:Dynamic ):Void {
 		var me = this;
 		var method = function( data ) {
